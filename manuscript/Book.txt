@@ -1,3 +1,7 @@
-chapter1.txt
-chapter2.txt
-chapter3.txt
+1import.txt
+2packages.txt
+3basicvis.txt
+10excelthings.txt
+10moreexcelthings.txt
+10statisticsthings.txt
+10thingsafterthat.txt
