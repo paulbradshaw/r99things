@@ -1,4 +1,4 @@
-# Combine
+# Section 4: Combine
 
 Good stories can be found in a single dataset, but often you will need to combine two together. After all, given the choice between a single-source story and a multiple-source one, which would you prefer?
 
