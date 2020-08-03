@@ -1,4 +1,4 @@
-# Clean
+# Section 2: Clean
 
 Having data is just the beginning. Being confident in the stories hidden within it means being able to trust the quality of the data – and that means cleaning it.
 
