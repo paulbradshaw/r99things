@@ -1,23 +1,8 @@
-# Compile: importing data into R
+# Importing data into R and understanding different data types
 
-Although you can manually create data from scratch in R by typing it out, most of the time you are going to be pulling data into R from somewhere else. 
+START WITH A CASE STUDY
 
-These sources can vary. For example stories I've worked on have involved all of the following:
-
-* A CSV file on your computer
-* The second sheet in an Excel workbook
-* A data file in a format like SPSS or XML or JSON
-* Any of the above fetched from a URL
-* Data stored in a table on a webpage
-* Data published across a series of webpages
-* Data gathered from social media
-* Data fetched from a live data feed
-* Data fetched from an API (a way of querying datasets, such as a crimes API)
-* Data compiled from pure text (e.g. word frequency)
-
-Fetching data from each of those sources involves challenges and considerations specific to it. In the following chapters I will go through different groups of techniques and challenges in turn. 
-
-You will need the first few chapters to get a grasp for the basics, but feel free to skip chapters after those and use the sections that are relevant to the problem facing you - then come back to other chapters later as and when you need them. 
+IN THIS CHAPTER
 
 ## Storing data in variables
 
