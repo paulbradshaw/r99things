@@ -18,6 +18,8 @@ Finally, we have considered our **audience** and the aspects of the data which w
 
 [There are a number of dimensions at play here], called news values, which have been identified and explored in a range of research. These include **proximity** (people are more interested in their own country than others), **impact** or **unexpectedness** (a big spike or drop, even in a distant country, for example) and 'currency' or **topicality** (an issue or area that is already in the news is more likely to be newsworthy. For example, if the president of Brazil is in the news already then his or her country's situation may have more topicality than other countries who haven't been in the news).
 
+In [the example above, from the Turkish news agency Anadolu](https://www.aa.com.tr/en/latest-on-coronavirus-outbreak/coronavirus-cases-deaths-on-rise-in-brazil-mexico/1929940), the focus is on Brazil and Mexico. A clue to why those countries have been chosen is in the text itself: *"Brazil is seen as the epicenter of the COVID-19 outbreak in Latin America."* We might also identify some political reasons why the state-run agency is reporting on cases outside of the country.
+
 So with those conceptual beginnings done with, it's time to start the technical work.
 
 In this chapter we will cover a number of core concepts in dealing with data using coding, but rather than start with those, we will start instead by fetching the data itself, and using that to explore those concepts in turn.
