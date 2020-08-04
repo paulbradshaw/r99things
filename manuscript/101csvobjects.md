@@ -1,5 +1,7 @@
 # Importing data into R and understanding different data types
 
+![A simple numbers story by the Anadolu Agency](images/covidcasestoryanadolu.png)
+
 START WITH A CASE STUDY
 
 IN THIS CHAPTER
