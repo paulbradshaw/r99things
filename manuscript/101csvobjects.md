@@ -17,7 +17,7 @@ That data comes in a format called CSV. We'll use that data to explore a number 
 
 ## Fetching data from a CSV
 
-The most simple data format that you might deal with in R is the CSV. CSVs are simple text files that can be read by any text-editing software - the file consists simply of rows of text where each piece of data is separated by a comma (CSV is short for Comma Separated Values). 
+CSV is probably the most simple data format that you might deal with in R. CSVs are simple text files that can be read by any text-editing software - the file consists simply of rows of text where each piece of data is separated by a comma (CSV is short for Comma Separated Values). 
 
 Unlike Excel spreadsheets, CSVs cannot contain multiple sheets, or information about any formulae - only the resulting values are kept.
 
