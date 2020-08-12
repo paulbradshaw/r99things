@@ -1,6 +1,6 @@
 # Introduction: the inverted pyramid of data journalism
 
-![](images/datajournalism_5cs1.gif)
+![](images/invertedpyramiddj.png)
 
 It's almost a decade since I published [The inverted pyramid of data journalism](https://onlinejournalismblog.com/2011/07/07/the-inverted-pyramid-of-data-journalism/). An attempt to identify the various skills and techniques involved in the practice, it has since been widely adopted by data journalism educators and used in data journalism research. So when it came to writing a book about the programming language R, I thought it would be a good idea to adopt the same model as a guiding framework.
 
