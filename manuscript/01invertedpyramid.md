@@ -4,7 +4,7 @@
 
 It's almost a decade since I published [The inverted pyramid of data journalism](https://onlinejournalismblog.com/2011/07/07/the-inverted-pyramid-of-data-journalism/). An attempt to identify the various skills and techniques involved in the practice, it has since been widely adopted by data journalism educators and used in data journalism research. So when it came to writing a book about the programming language R, I thought it would be a good idea to adopt the same model as a guiding framework.
 
-The book is divided into five sections which mirror those in the model - from compiling data in the first place, to cleaning it, combining it, putting it into context and communicating the stories it. But data journalism often involves circling back: you may have to compile more data in order to combine it with existing dataset, or clean it; you often have to combine data to put it into context. So you'll find chapters where methods are combined too.
+The book is divided into six sections which mirror those in the model - from conceiving the idea for a story and compiling data in the first place, to cleaning it, combining it, putting it into context and communicating the stories it. But data journalism often involves circling back: you may have to compile more data in order to combine it with existing dataset, or clean it; you often have to combine data to put it into context. So you'll find chapters where methods are combined too.
 
 Along the way I will talk about some of the stories that I and others have been involved with as data journalists, and the many considerations that go beyond the technical. 
 
