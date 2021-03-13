@@ -17,7 +17,7 @@ That data comes in a format called CSV. We'll use that data to explore a number 
 
 ## Fetching data from a CSV
 
-The most simple data format that you might deal with in R is the CSV. CSVs are simple text files that can be read by any text-editing software - the file consists simply of rows of text where each piece of data is separated by a comma (CSV is short for Comma Separated Values). 
+CSV is probably the most simple data format that you might deal with in R. CSVs are simple text files that can be read by any text-editing software - the file consists simply of rows of text where each piece of data is separated by a comma (CSV is short for Comma Separated Values). 
 
 Unlike Excel spreadsheets, CSVs cannot contain multiple sheets, or information about any formulae - only the resulting values are kept.
 
@@ -25,8 +25,35 @@ We will look at spreadsheets and other data formats soon, but the CSV is a good 
 
 ## Introducing functions
 
-To import a CSV into R, you need to use a **function**, called `read_csv()`.
+To import a CSV into R, you need to use a **function**, called `read.csv()`.
 
+Download a CSV file from the gender pay gap service's [Download gender pay gap data](https://gender-pay-gap.service.gov.uk/viewing/download) page. There is a file for every year - I've picked the [2019-20 data](https://gender-pay-gap.service.gov.uk/viewing/download-data/2019) because at the time of writing that's the last full year of data.
+
+Once downloaded, it's important to **put the file in the same location as your R project**.
+
+To import a CSV into R, you need to use a **function** - in this case, we are going to use one called `read.csv()`.
+
+Functions are like recipes: a series of instructions for achieving a certain result. But instead of having to type all those instructions, you just use the name of the function (in the same way as you might say "use the cookie recipe" instead of giving someone a list of instructions each time). 
+
+The `read.csv()` function, for example, is, not surprisingly, a recipe for reading CSV files.
+
+Like recipes, functions normally have **ingredients**. For that reason, a function is always followed by a pair of parentheses, containing any ingredients that it needs (again, in the same way as you might say "use the cookie recipe, but add chocolate chips").
+
+The term for those ingredients in R is ["parameters" or "arguments"](https://stackoverflow.com/questions/15463851/confused-about-r-terminology-attributes-parameters-and-arguments): when we talk about a function in general, for example, we might say it "takes two arguments" (two ingredients). 
+
+When a function is used, then, it might look something like this: 
+
+`myfunction(the_first_argument)`
+
+If it has more than one ingredient then each argument is separated by a comma, like so:
+
+`myfunction(the_first_argument, the_second_argument)`
+
+The code below, then, uses the name of the CSV file as the *argument* for the function `read.csv()`.
+
+```{r}
+read.csv("UK Gender Pay Gap Data - 2019 to 2020.csv")
+```
 
 ## Storing data in variables
 
