@@ -101,19 +101,75 @@ T> If you don't know where the file is you can use `file.choose()`
 T> 
 T> This will make a window pop up which you can then use to navigate to the file that you need. The result will be a path to that file that you can copy and paste into a command like the `read.csv()` command shown above. However, note that this path may stop working later on if you move or change the file or any of the folders involved - it's always best to keep your data files in the same directory as your R project.
 
+You can tell that data has been stored in a variable in RStudio by looking in the *Environment* area in the upper right corner. Your new variable should now be listed there - and any new variables will be added there too. Data in particular will be ordered to appear at the top of the list.
+
+![The environment window in the upper right corner of RStudio](images/environmentwindow.png)
+
 ## Data types
 
-Now that we have the data stored in R, we can start to explore the different types of data within it.
+When you import a CSV or other spreadsheet into R, it is stored in a particular *type* of variable, called a **data frame**. Data frames are basically tables - it is a type of variable that has rows and columns - but there is one important distinction to note: 
+
+In a data frame a column can only contain *one type* of information. For example: all numbers, or all text. In spreadsheets, of course, you might have a column where some cells contain numbers and others contain text but that's not possible in a data frame: instead, a column with such a mix will be treated as if *all* the cells contained text. We will talk more about this distinction later.
+
+First, now that we have the data stored in R, we can start to explore the different types of data within it.
+
+A quick way to do that is with another function: `str()`.
+
+The `str()` function tells you the **structure** of your data frame - including types of information. The one ingredient it needs is the name of the data frame, like so:
+
+```{r}
+str(genderpaygapdata)
+```
+
+Running this function will give you ("return" to you) a line telling you what type of object it is ("data frame") and how many rows and columns there are ("5775 obs. of  25 variables"). Note that rows are called "observations" and columns are called "variables".
+
+This is followed by a series of lines with details on each column. The first column, for example, is `$ EmployerName: Factor w/ 5772 levels`, and the fifth column is `$ DiffMeanHourlyPercent: num`.
+
+![The str function shows you the structure of a variable](images/strfactors.png)
+
+What does this mean?
+
+* The dollar sign indicates that we are dealing with a column, or 'variable' - more on this later.
+* Then we have the name of that column: EmployerName, for example
+* We then have `Factor` or `num`. The `num` means it's a **numeric** column: `DiffMeanHourlyPercent`, for example, contains only numbers. But `Factor` needs some more explanation...
+
+### Explaining factors
+
+Factors are basically columns of categorical data. A column with only "male" or "female", for example, is a classic example of a factor. As [Hadley Wickham puts it in the book R for Data Science](https://r4ds.had.co.nz/factors.html):
+
+> "In R, factors are used to work with categorical variables, variables that have a fixed and known set of possible values. They are also useful when you want to display character vectors in a non-alphabetical order.
+
+> "Historically, factors were much easier to work with than characters. As a result, many of the functions in base R automatically convert characters to factors. This means that factors often crop up in places where they’re not actually helpful."
+
+If we look at our data we can see that's happened here: 'Employer Name' isn't really a factor - there are as many names as there are rows, and the same applies to address and company number. An argument could be made that SIC codes (codes that categorise the sector that a company operates in) are factors, but in practical terms we don't really want them stored that way. And indeed, the situations where we do want it stored that way are rare.
+
+Luckily we can stop that happening.
 
 
 
-## Ensuring text data is not stored as factors
+### Ensuring text data is not stored as factors
 
-You can add extra parameters when you import. One important one is `stringsAsFactors=FALSE`. This prevents character columns being treated as 'factors', or numeric columns containing non-numeric values (like #N/A) being treated as 'factors' when you want them to be treated as numbers. ([more on factors here](https://blog.exploratory.io/why-factor-is-one-of-the-most-amazing-things-in-r-e967fe27d292))
+When Hadley Wickham talks about "many of the functions in base R" he is referring to functions like `read.csv()`. And although this "automatically" convert characters to factors, we can add extra instructions - parameters - to that function to specify that we want it to behave differently.
+
+One important one is `stringsAsFactors=FALSE`. This prevents character columns being treated as 'factors', or numeric columns containing non-numeric values (like #N/A) being treated as 'factors' when you want them to be treated as numbers. ([more on factors here](https://blog.exploratory.io/why-factor-is-one-of-the-most-amazing-things-in-r-e967fe27d292))
 
 Add it with a comma inside the parentheses like so:
 
-`yourvariable <- read.csv('yourdata.csv', stringsAsFactors=FALSE)`
+```{r}
+genderpaygapdata <- read.csv("UK Gender Pay Gap Data - 2019 to 2020.csv", stringsAsFactors=FALSE)
+```
+
+Note that we've used the same variable name, so this will **overwrite** the variable we created earlier when we imported it the first time round.
+
+Now try `str()` to see if the structure is different:
+
+```{r}
+str(genderpaygapdata)
+```
+
+![This time the columns are character types](images/strfactorssecondtime.png)
+
+This time those first few columns are no longer `Factor` but instead `chr`, or **character** types - in other words normal text. That's how we want it.
 
 ## Useful links
 
