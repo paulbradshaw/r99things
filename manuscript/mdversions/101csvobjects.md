@@ -8,7 +8,7 @@ New figures on gender pay at thousands of companies has been released, and after
 
 The data is available from a government website: the [gender pay gap service](https://gender-pay-gap.service.gov.uk/). Their website allows you to search for any individual company, but you can also click on a *[Download all gender pay gap data](https://gender-pay-gap.service.gov.uk/viewing/download)* link to get the data for any financial year.
 
-That data comes in a format called CSV. We'll use that data to explore a number of core concepts in dealing with data using coding, including:
+That data comes in a format called **CSV**. We'll use that data to explore a number of core concepts in dealing with data using coding, including:
 
 * Functions
 * Variables
@@ -49,33 +49,65 @@ If it has more than one ingredient then each argument is separated by a comma, l
 
 `myfunction(the_first_argument, the_second_argument)`
 
-The code below, then, uses the name of the CSV file as the *argument* for the function `read.csv()`.
+The code below, then, uses the **path to** the the CSV file (including its name) as the *argument* for the function `read.csv()`.
 
 ```{r}
 read.csv("UK Gender Pay Gap Data - 2019 to 2020.csv")
 ```
 
+T> Note that the path to the file needs to be in quotation marks and include the file extension (.csv). In this case the path to the file is simply the name of the file - this is because it's already in the same folder as your project, as we recommended. However, if you chose to create a folder called 'data' inside your project folder, and put the data there, we'd have to include that in the path like so:
+T> 
+T> `read.csv("data/UK Gender Pay Gap Data - 2019 to 2020.csv")`
+
+If you run this code then RStudio will *read* the data in that CSV and show it to you - but you won't be able to do anything with it.
+
+Why? Because in order to *do* anything with data in coding you need to first *store* it - in something called a **variable**.
+
 ## Storing data in variables
 
-Like most programming languages, R allows you to import and store data in 'objects' called **variables**.
+A **variable** is an object that stores information in your code, in the same way as a spreadsheet cell might store different pieces of information in a spreadsheet.
 
-*Note: you cannot use an underscore in R, which instead tends to use a dot to separate words in variables. You should also avoid using one-letter functions as these already have special meanings in R: c, q, s, t, C, D, F, I, and T.*
+Just as spreadsheet cells are given names like "A1" or "C3" (and [you can also give them custom names](https://support.microsoft.com/en-us/office/define-and-use-names-in-formulas-4d0f13ac-53b7-422e-afd2-abd7ff379c64)), variables are given names too.
 
-The easiest way to import data is to put it in the same folder as your project. This way you don't have to describe a path to data somewhere else.
+> W: You cannot use an underscore in R, which instead tends to use a dot to separate words in variables. You should also avoid using one-letter functions as these already have special meanings in R: c, q, s, t, C, D, F, I, and T.*
 
-If you've created a project in R Studio, and got it open, in the *console* on the left you should see a `>` and a flashing cursor.
+Variables in coding, however, can contain much more complex information than can be stored in one spreadsheet cell. For example, a variable can contain a whole table, or a whole column of values, as well as just a single number or string of text.
 
-To import data into a variable, type something like this:
+The first time that you create a variable you need to give it a name, and **assign** a value to the variable.
+
+This is done by putting the name of your variable, followed by the characters `<-` (think of it as an arrow pointing left, at that name), followed by what you want to store in that variable. Sometimes the value you want to store is very obvious, like so:
+
+`myname <- "Paul"`
+
+In this example the string of letters "Paul" is assigned to the variable called `myname`.
+
+But if you are using code to generate information - like when importing data - you can also assign the **results** of some code to a variable, like so:
 
 `yourvariable <- read.csv('yourdata.csv')`
 
-The bit that says `'yourdata.csv'` should obviously be the name of your file: note that it should be placed in inverted commas. In this example I'm using a spreadsheet in CSV format. (More on other formats below.)
+In that example the results of applying the `read.csv()` function to the file 'yourdata.csv' are assigned to the variable called `yourvariable`.
 
 The bit that says `yourvariable` is just a name that you choose. It can be almost anything, but choose something meaningful.
 
-The bit that says `read.csv` is a **function**. Functions are basically recipes: the `read.csv` function is a recipe for reading CSV files. If you wanted to read other formats you can use other functions but I'll come onto that below.
+To **store** the gender pay gap, then, we need to adapt the code to read like this:
 
-The `<-` bit is taking the result of reading that CSV and putting it into your variable. You can actually just use `=` if you're used to that from other languages, but `<-` has a certain appeal.
+```{r}
+genderpaygapdata <- read.csv("UK Gender Pay Gap Data - 2019 to 2020.csv")
+```
+
+In the code above we've added `genderpaygapdata <- ` to assign the results of that code to a new variable called `genderpaygapdata`.
+
+T> If you don't know where the file is you can use `file.choose()`
+T> 
+T> This will make a window pop up which you can then use to navigate to the file that you need. The result will be a path to that file that you can copy and paste into a command like the `read.csv()` command shown above. However, note that this path may stop working later on if you move or change the file or any of the folders involved - it's always best to keep your data files in the same directory as your R project.
+
+## Data types
+
+Now that we have the data stored in R, we can start to explore the different types of data within it.
+
+
+
+## Ensuring text data is not stored as factors
 
 You can add extra parameters when you import. One important one is `stringsAsFactors=FALSE`. This prevents character columns being treated as 'factors', or numeric columns containing non-numeric values (like #N/A) being treated as 'factors' when you want them to be treated as numbers. ([more on factors here](https://blog.exploratory.io/why-factor-is-one-of-the-most-amazing-things-in-r-e967fe27d292))
 
@@ -83,11 +115,7 @@ Add it with a comma inside the parentheses like so:
 
 `yourvariable <- read.csv('yourdata.csv', stringsAsFactors=FALSE)`
 
-If you don't know where the file is you can use:
-
-`file.choose()`
-
-This will make a window pop up which you can then use to navigate to the file that you need. The result will be a path to that file that you can copy and paste into a command like the `read.csv()` command shown above. However, note that this path may stop working later on if you move or change the file or any of the folders involved - it's always best to keep your data files in the same directory as your R project.
+## Useful links
 
 For importing other files see Sharon Machlis's article [Great R packages for data import, wrangling and visualization](http://www.computerworld.com/article/2921176/business-intelligence/great-r-packages-for-data-import-wrangling-visualization.html).
 
