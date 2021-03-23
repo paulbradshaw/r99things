@@ -2,10 +2,20 @@
 
 Files for an ebook on R. Plan:
 
+* [Introduction: the inverted pyramid of data journalism](https://github.com/paulbradshaw/r99things/blob/master/manuscript/mdversions/01invertedpyramid.md)
+
+## Conceive
+
+* [Step 0: Conceive](https://github.com/paulbradshaw/r99things/blob/master/manuscript/mdversions/02conceive.md)
+* [Installing R and RStudio](https://github.com/paulbradshaw/r99things/blob/master/manuscript/mdversions/02install.md)
+  * [Notebooks and RMarkdown](https://github.com/paulbradshaw/r99things/blob/master/manuscript/mdversions/02install.md#notebooks-and-rmarkdown)
+
 ## Compile
 
-* `read.csv()`
-* Data types: data frame, vector, string
+* [Section 1: Compile](https://github.com/paulbradshaw/r99things/blob/master/manuscript/mdversions/100compile.md)
+* [Importing data into R and understanding different data types](https://github.com/paulbradshaw/r99things/blob/master/manuscript/mdversions/101csvobjects.md): `read.csv()`
+  * [Data types](https://github.com/paulbradshaw/r99things/blob/master/manuscript/mdversions/101csvobjects.md#data-types): data frames
+  * , vector, string
 * `rio::import()`
 * JSON and APIs
 * XML
