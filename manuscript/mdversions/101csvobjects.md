@@ -141,7 +141,7 @@ Factors are basically columns of categorical data. A column with only "male" or 
 
 > "Historically, factors were much easier to work with than characters. As a result, many of the functions in base R automatically convert characters to factors. This means that factors often crop up in places where they’re not actually helpful."
 
-If we look at our data we can see that's happened here: 'Employer Name' isn't really a factor - there are as many names as there are rows, and the same applies to address and company number. An argument could be made that SIC codes (codes that categorise the sector that a company operates in) are factors, but in practical terms we don't really want them stored that way. And indeed, the situations where we do want it stored that way are rare.
+If we look at our data we can see that's happened here: 'Employer Name' isn't really a factor - there are as many names as there are rows, and the same applies to address and company number. An argument could be made that SIC codes (codes that categorise the sector that a company operates in) are factors, but in practical terms we don't really want them stored that way. And indeed, the situations where we do want information stored as factors are relatively rare.
 
 Luckily we can stop that happening.
 
