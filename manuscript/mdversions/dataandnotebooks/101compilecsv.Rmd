@@ -89,6 +89,7 @@ In the code above we've added `genderpaygapdata <- ` to assign the results of th
 You can tell that data has been stored in a variable in RStudio by looking in the *Environment* area in the upper right corner. Your new variable should now be listed there - and any new variables will be added there too. Data in particular will be ordered to appear at the top of the list.
 
 
+
 ## Variable types
 
 When you import a CSV or other spreadsheet into R, it is stored in a particular *type* of variable, called a **data frame**. Data frames are basically tables - it is a type of variable that has rows and columns - but there is one important distinction to note: 
@@ -123,6 +124,37 @@ Factors are basically columns of categorical data. A column with only "male" or 
 
 > "Historically, factors were much easier to work with than characters. As a result, many of the functions in base R automatically convert characters to factors. This means that factors often crop up in places where they’re not actually helpful."
 
+If we look at our data we can see that's happened here: 'Employer Name' isn't really a factor - there are as many names as there are rows, and the same applies to address and company number. An argument could be made that SIC codes (codes that categorise the sector that a company operates in) are factors, but in practical terms we don't really want them stored that way. And indeed, the situations where we do want information stored as factors are relatively rare.
 
+Luckily we can stop that happening.
 
+### Ensuring text data is not stored as factors
 
+When Hadley Wickham talks about "many of the functions in base R" he is referring to functions like `read.csv()`. And although this "automatically" convert characters to factors, we can add extra instructions - parameters - to that function to specify that we want it to behave differently.
+
+One important one is `stringsAsFactors=FALSE`. This prevents character columns being treated as 'factors', or numeric columns containing non-numeric values (like #N/A) being treated as 'factors' when you want them to be treated as numbers. ([more on factors here](https://blog.exploratory.io/why-factor-is-one-of-the-most-amazing-things-in-r-e967fe27d292))
+
+Add it with a comma inside the parentheses like so:
+
+```{r}
+genderpaygapdata <- read.csv("UK Gender Pay Gap Data - 2019 to 2020.csv", stringsAsFactors=FALSE)
+```
+
+Note that we've used the same variable name, so this will **overwrite** the variable we created earlier when we imported it the first time round.
+
+Now try `str()` to see if the structure is different:
+
+```{r}
+str(genderpaygapdata)
+```
+
+This time those first few columns are no longer `Factor` but instead `chr`, or **character** types - in other words normal text. That's just how we want it.
+
+## Data types: numeric, character, Factor - and vectors?
+
+So far, then, we've come across the following types of information:
+
+* Data frames
+* Numeric
+* Character
+* Factors
