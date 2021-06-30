@@ -26,6 +26,7 @@ Files for an ebook on R. Plan:
 
 ## Clean
 
+* [Section 2: Clean](https://github.com/paulbradshaw/r99things/blob/master/manuscript/mdversions/200clean.md)
 * Reshaping: `tidyr`
 * Text: `gsub`
 * `stringr`
